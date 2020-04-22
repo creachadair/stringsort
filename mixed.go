@@ -3,8 +3,8 @@ package stringsort
 
 import "sort"
 
-// ByMixedKey returns a sorter that orders ss by mixed key. The keys are
-// precomputed at the point of construction.
+// ByMixedKey returns a sorter that orders ss non-decreasing by mixed key. The
+// keys are precomputed at the point of construction.
 //
 // Note that non-identical strings may have equal mixed keys, consider for
 // example "xyzzy1" and "xyzzy01". To ensure a deterministic order, ties on key
