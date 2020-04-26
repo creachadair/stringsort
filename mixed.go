@@ -1,4 +1,27 @@
 // Package stringsort provides support code for sorting strings.
+//
+// Mixed Keys
+//
+// Ordinarily strings are sorted lexicographically by character.  This is
+// simple and consistent, but when applied to UI elements can be unintuitive
+// for users. For example, lexicgraphically sorting a list of filenames will
+// produce an order like
+//
+//   file-1.png
+//   file-10.png
+//   file-2.png
+//
+// That is, "file 2" is listed after "file 10". One way to address this is to
+// treat runs of digits differently in comparison: Instead of comparing them
+// digit-by-digit, treat the entire run as a single value.
+//
+// The MixedKey type supports this representation, representing a string as a
+// sequence of "spans", each consisting of a non-digit string followed by an
+// integer value corresponding to a digit string. Lexicographic comparison of
+// these keys will preserve the intuitive ordering of digit sequences.
+//
+// This approach emulates the ordering used by the macOS Finder for file names.
+//
 package stringsort
 
 import "sort"
