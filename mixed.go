@@ -98,7 +98,7 @@ func ParseMixed(s string) MixedKey {
 		cur := nspan{run: s[end:i], n: int(ch - '0')}
 		i++
 		for i < len(s) {
-			ch = s[i]
+			ch := s[i]
 			if ch < '0' || ch > '9' {
 				break
 			}
