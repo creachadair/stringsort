@@ -89,9 +89,9 @@ func TestByMixedKey(t *testing.T) {
 		"echo1",
 	}
 
-	// As a sanity check on the test, verify that the input is not the same as a
-	// lexicographic sort on the same strings. This ensures the rest of the test
-	// is actually exercising the code.
+	// As a coherence check on the test, verify that the input is not the same
+	// as a lexicographic sort on the same strings. This ensures the rest of the
+	// test is actually exercising the code.
 	cp := copyStrings(input)
 	sort.Strings(cp)
 	if cmp.Equal(cp, input) {
