@@ -142,12 +142,14 @@ func compareNspan(a, b nspan) int {
 }
 
 func compareMixed(a, b MixedKey) int {
-	i := 0
-	for i < len(a) && i < len(b) {
+	n := len(a)
+	if n > len(b) {
+		n = len(b)
+	}
+	for i := 0; i < n; i++ {
 		if c := compareNspan(a[i], b[i]); c != 0 {
 			return c
 		}
-		i++
 	}
 	return compareInt(len(a), len(b))
 }
