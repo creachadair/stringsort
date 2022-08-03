@@ -1,15 +1,15 @@
 // Package stringsort provides support code for sorting strings.
 //
-// Mixed Keys
+// # Mixed Keys
 //
 // Ordinarily strings are sorted lexicographically by character.  This is
 // simple and consistent, but when applied to UI elements can be unintuitive
 // for users. For example, lexicgraphically sorting a list of filenames will
 // produce an order like
 //
-//   file-1.png
-//   file-10.png
-//   file-2.png
+//	file-1.png
+//	file-10.png
+//	file-2.png
 //
 // That is, "file 2" is listed after "file 10". One way to address this is to
 // treat runs of digits differently in comparison: Instead of comparing them
@@ -21,7 +21,6 @@
 // these keys will preserve the intuitive ordering of digit sequences.
 //
 // This approach emulates the ordering used by the macOS Finder for file names.
-//
 package stringsort
 
 import "sort"
@@ -71,12 +70,11 @@ func (b byMixedKey) Swap(i, j int) {
 //
 // For example, the string "alpha25bravo-3" generates the mixed key:
 //
-//      ("alpha", 25) ("bravo-", 3)
+//	("alpha", 25) ("bravo-", 3)
 //
 // while the string "101 dalmatians" generates the mixed key:
 //
-//      ("", 101) (" dalmatians", 0)
-//
+//	("", 101) (" dalmatians", 0)
 type MixedKey []nspan
 
 // ParseMixed parses s into a MixedKey.
